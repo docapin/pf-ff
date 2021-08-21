@@ -28,7 +28,7 @@ const PageTop = () => {
   }, [])
   
   return(
-    <button className="p-pagetop" onClick={typeof window !== `undefined` ? returnTop : null}>
+    <button aria-label="トップに戻る" className="p-pagetop" onClick={typeof window !== `undefined` ? returnTop : null}>
       <span className="c-arrow is-up p-pagetop__btn"/>
     </button>
   )
