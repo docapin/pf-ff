@@ -1,0 +1,21 @@
+/* loading */
+.p-loading {
+  @include flexSet($jc: center, $ai: center);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: color(white);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s;
+  z-index: 9999;
+  &.is-active {
+    opacity: 1;
+  }
+  .p-company-logo {
+    display: block;
+    max-width: 50%;
+  }
+}

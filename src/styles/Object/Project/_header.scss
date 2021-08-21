@@ -1,0 +1,167 @@
+/* header */
+.p-header {
+  margin: auto;
+  padding: space(m);
+  width: 100%;
+  max-width: bp(m);
+  line-height: 1;
+  transition: height $trs, background-color $trs;
+  @include mq(s){
+    @include flexSet($jc: space-between);
+  }
+  &.is-active { //ハンバーガーメニュー展開
+    background-color: color(white);
+    .p-header {
+      &__list { //メニューリスト
+        left: 0;
+        background-color: color(white);
+      }
+      &__menu-btn { //ハンバーガーメニューボタン
+        transform: rotate(45deg);
+        &-line {
+          &:first-child {
+            transform: translateY(space(xs)) rotate(90deg);
+          }
+          &:last-child {
+            transform: translateY(-100%);
+          }
+        }
+      }
+    }
+  }
+  &.is-scroll { //トップからスクロールした場合の処理
+    .p-header {
+      &__list {
+        &-link {
+          a {
+            color: color(black);
+            text-shadow: none;
+          }
+          .c-arrow {
+            color: color(main);
+          }
+          @include mq(s){
+            &:hover::after {
+              border-color: color(main);
+            }
+          }
+        }
+      }
+    }
+  }
+  &__logo { //ロゴ
+    @include flexSet($jc: space-between, $ai: center);
+    &::after {
+      display: none;
+    }
+    a {
+      transition: opacity $trs;
+      &:hover {
+        opacity: $linkopa;
+      }
+    }
+  }
+  &__list { //メニューのリスト
+    position: fixed;
+    top: calc(#{space(m)} * 2 + 40px);
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    transition: left $trs, background-color $trs;
+    @include mq(s){
+      position: static;
+      @include flexSet($ai: center);
+      height: 100%;
+    }
+    &-link { //メニューリンク
+      position: relative;
+      font-size: fz(l);
+      text-align: center;
+      transition: opacity $trs;
+      &:hover {
+        opacity: $linkopa;
+      }
+      &::after { //仕切り用の下線
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 10%;
+        border-bottom: 1px solid color(main);
+        transform: translateX(-50%);
+        transition: width $trs;
+        content: '';
+      }
+      @include mq(s){
+        margin-left: space(l);
+        height: 100%;
+        font-size: fz(m);
+        &::after { //hover時の仕切り線
+          width: 0;
+          border-color: color(white);
+        }
+        &:hover {
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+      a {
+        position: relative;
+        display: block;
+        padding: space(l);
+        color: color(black);
+        z-index: 1;
+        @include mq(s){
+          @include flexSet($ai: center);
+          padding: 0;
+          height: 100%;
+          color: color(white);
+          text-shadow: $txts;
+        }
+      }
+      .c-arrow {
+        color: color(main);
+        @include mq(s){
+          color: inherit;
+        }
+      }
+    }
+  }
+  &__menu-btn { //ハンバーガーメニュー
+    position: relative;
+    @include flexSet($fd: column, $jc: center);
+    padding: space(s);
+    width: 40px;
+    height: 40px;
+    background-color: color(main);
+    border-radius: 50%;
+    transform: none;
+    transition: transform $trs, opacity $trs;
+    cursor: pointer;
+    @include mq(s){
+      display: none;
+    }
+    &:hover {
+      opacity: $linkopa;
+    }
+    &-line { //ハンバーガーメニューの白線
+      margin-top: space(xs);
+      width: 100%;
+      border-top: 2px solid color(white);
+      transition: transform $trs;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+  .p-company-logo { //企業ロゴ
+    height: 40px;
+  }
+  &:not(.is-scroll, .is-active) { //ヘッダーがスクロール状態の企業ロゴ
+    .p-company-logo {
+      &--main, &--accent {
+        fill: color(white);
+      }
+    }
+  }
+}

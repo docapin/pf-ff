@@ -1,0 +1,23 @@
+.l-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(to bottom, rgba(color(black), .5), transparent);
+  transition: background-color $trs, background-image $trs;
+  z-index: 100;
+  &.is-active, &.is-scroll {
+    background-color: color(white);
+    background-image: none;
+  }
+  &.is-scroll {
+    box-shadow: $bxs;
+  }
+}
+.l-main-menu {
+  background-color: color(white);
+}
+.l-content-sub {
+  background-color: color(grayLight);
+  overflow: hidden;
+}

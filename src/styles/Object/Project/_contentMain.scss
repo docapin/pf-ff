@@ -1,0 +1,106 @@
+/* content-main */
+.p-content { //トップメニュー
+  &__list { //メニュー要素
+    position: relative;
+    z-index: 1;
+    &:first-child {
+      margin-top: 0;
+    }
+    @include mq(xs){
+      width: 100%;
+    }
+  }
+  &__info { //情報エリア
+    margin: 0 auto;
+    padding: space(4xl) space(m);
+    max-width: bp(m);
+    background-color: color(white);
+    @include mq(xs){
+      padding: space(8xl) space(m);
+    }
+  }
+  &__title { //タイトル
+    position: relative;
+    @include flexSet($fd: column, $jc: flex-end, $ac: center);
+    width: 100%;
+    height: 3em;
+    color: color(white);
+    font-size: 15vw;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    z-index: 1;
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to top, rgba(color(black), 75%), transparent 50%);
+      z-index: -1;
+      content: '';
+    }
+    @include mq(xs){
+      font-size: fz(10xl);
+    }
+    &.is {
+      &-bg { //背景画像
+        &-concept { //conceptセクション
+          background-image: url('/concept_bg_img.jpg');
+        }
+        &-bland { //blandセクション
+          background-image: url('/bland_bg_img.jpg');
+          background-position-y: top;
+        }
+      }
+    }
+    &-main { //タイトルのメインテキスト
+      margin: auto space(m) 0;
+      padding: 0 space(m);
+      width: 100%;
+      max-width: bp(m);
+      line-height: 0.85;
+      font-family: 'Noto Serif JP';
+    }
+    &-sub { //タイトルのサブテキスト
+      color: color(main);
+      font-size: fz(l);
+      font-weight: bold;
+      line-height: 1;
+      @include mq(m){
+        font-size: fz(xl);
+      }
+    }
+  }
+  &__text { //テキスト
+    margin-top: space(l);
+    &:first-child {
+      margin-top: -.25em;
+    }
+    @include mq(m){
+      font-size: fz(l);
+    }
+  }
+  &__btn { //リンクボタン
+    margin-top: space(l);
+    &-link {
+      display: block;
+      padding: space(s) space(xl);
+      color: color(main);
+      background-color: color(white);
+      border: 2px solid color(main);
+      border-radius: 999px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color $trs, background-color $trs, opacity $trs;
+      &:hover {
+        color: color(white);
+        background-color: color(main);
+        opacity: $linkopa;
+      }
+      @include mq(s){
+        font-size: fz(l);
+      }
+    }
+  }
+}

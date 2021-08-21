@@ -1,0 +1,89 @@
+/* footer */
+.p-footer {
+  &__link { //フッターリンク
+    @include layoutBase;
+    max-width: bp(m);
+    font-size: fz(xs);
+    @include mq(xs){
+      @include flexSet($jc: space-between);
+    }
+    > li {
+      margin-top: space(l);
+      &:first-child {
+        margin-top: 0;
+      }
+      @include mq(xs){
+        width: calc(50% - #{space(m)});
+        &:nth-child(2) {
+          margin-top: 0;
+        }
+        &:nth-child(even){
+          margin-left: space(m);
+        }
+      }
+      @include mq(s){
+        margin-top: 0;
+        width: auto;
+      }
+    }
+    &-list { //各リンクリスト
+      padding-left: space(m);
+      li {
+        margin-top: space(xs);
+        &:first-child { //リストの先頭
+          margin-top: 0;
+          font-size: fz(s);
+          font-weight: bold;
+          a {
+            position: relative;
+            margin-left: -#{space(m)};
+            padding-left: space(m);
+          }
+        }
+        a {
+          color: color(grayDark);
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        .c-arrow {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          margin-top: -.15em;
+        }
+      }
+    }
+  }
+  &__bottom { //フッター下部
+    color: color(white);
+    background-color: color(main);
+    font-size: fz(s);
+    &-container {
+      margin: auto;
+      padding: space(m) calc(#{space(m) * 2} + 56px) space(m) space(m); //margin-rightのスペースはトップに戻るボタン用
+      max-width: bp(m);
+      @include flexSet;
+    }
+    &-link { //フッター下部リンク箇所
+      width: 100%;
+      a {
+        color: color(white);
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      @include mq(xs){
+        margin-left: space(m);
+        width: auto;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+    &-copy { //コピーライト
+      margin-top: space(s);
+      width: 100%;
+    }
+  }
+}

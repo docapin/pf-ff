@@ -1,0 +1,28 @@
+/* arrow */
+.c-arrow { //矢印
+  display: inline-block;
+  width: .5em;
+  height: .5em;
+  border-top: .2em solid;
+  border-right: .2em solid;
+  &.is {
+    &-up {
+      transform: translateY(.2em) rotate(-45deg);
+    }
+    &-right { //右向き
+      transform: translateY(-.1em) rotate(45deg);
+    }
+    &-down {
+      transform: translateY(-.2em) rotate(135deg);
+    }
+    &-left {
+      transform: translateY(-.1em) rotate(-135deg);
+    }
+    &-white {
+      border-color: color(white);
+    }
+    &-main {
+      border-color: color(main);
+    }
+  }
+}

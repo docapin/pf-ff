@@ -1,0 +1,61 @@
+/* content-sub */
+.p-content-sub {
+  margin: 0 auto;
+  padding: space(10xl) space(m);
+  max-width: bp(m);
+  &__list { //リスト
+    margin-top: space(l);
+  }
+  &__link { //リンク
+    position: relative;
+    display: block;
+    padding: space(m);
+    color: color(white);
+    text-align: center;
+    line-height: 1;
+    background-size: cover;
+    background-position: center 30%;
+    font-size: fz(l);
+    text-shadow: $txts;
+    z-index: 1;
+    transition: opacity $trs;
+    &:hover {
+      opacity: $linkopa;
+    }
+    &::after { //背景を覆う黒ベタ
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: color(black);
+      opacity: .3;
+      z-index: -1;
+      content: '';
+    }
+    &.is {
+      &-l { //Lサイズ
+        padding: space(2xl) space(m);
+        font-size: fz(2xl);
+      }
+      &-recruit { //recruit背景
+        background-image: url('/recruit_img.jpg');
+      }
+      &-company { //company背景
+        background-image: url('/company_img.jpg');
+      }
+      &-contact { //contact背景
+        background-image: url('/contact_img.jpg');
+      }
+    }
+  }
+  &__title {
+    &-main {
+      font-size: inherit;
+    }
+    &-sub {
+      margin-top: space(s);
+      font-size: fz(m);
+    }
+  }
+}

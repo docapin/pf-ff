@@ -1,0 +1,10 @@
+/* company-logo */
+.p-company-logo {
+  display: inline-block;
+  &--main {
+    fill: color(main);
+  }
+  &--accent {
+    fill: color(accent);
+  }
+}

@@ -1,0 +1,107 @@
+/* shoplist */
+.react-slideshow-container { //スライダーのプラグインが生成するラッパー要素
+  position: relative;
+  @include mq(xs){ //スライダー2枚時の幅調整
+    margin-left: -#{space(m)}; 
+    width: calc(100% + #{space(m)});
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: space(m);
+      height: 100%;
+      background-color: color(white);
+      content: '';
+    }
+  }
+}
+.react-slideshow-wrapper.slide { //スライダー部分
+  padding-bottom: space(m);
+}
+.react-slideshow-container+ul.indicators { //ページネーション
+  margin-top: 0;
+}
+.react-slideshow-container+ul.indicators .each-slideshow-indicator {
+  transition: opacity $trs;
+}
+.react-slideshow-container+ul.indicators .each-slideshow-indicator:before { //ページネーションの大きさ
+  top: 50%;
+  width: 1em;
+  height: 1em;
+  transform: translateY(-50%);
+}
+.react-slideshow-container+ul.indicators li { //ページネーションのラッパー要素
+  width: 1em;
+  height: fz(2xl);
+  &:not(:first-child){
+    margin-left: space(s);
+  }
+}
+
+.p-shoplist {
+  margin-top: space(2xl);
+  &__slider { //スライダー
+    font-size: fz(s);
+    @include mq(xs){
+      font-size: fz(m);
+    }
+    &-list { //各店舗情報リスト
+      width: 100%;
+      @include mq(xs){
+        padding-left: space(m);
+      }
+      a {
+        display: block;
+        transition: opacity $trs;
+        &:hover {
+          opacity: $linkopa;
+          .p-shoplist__slider-hoverline {
+            @include hoverLineAfter;
+          }
+        }
+      }
+    }
+    &-thumbnail { //サムネイル
+      width: 100%;
+      border-radius: $brs;
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+    }
+    &-name { //店舗名
+      margin-top: space(s);
+      color: color(black);
+      font-size: fz(m);
+      line-height: 1;
+      @include mq(xs){
+        font-size: fz(l);
+      }
+    }
+    &-hoverline { //ホバー時の下線
+      @include hoverLineBefore;
+    }
+    &-arrow { //スライダーの矢印
+      position: absolute;
+      display: block;
+      bottom: calc((#{fz(2xl)}) * -1);
+      color: color(main);
+      font-size: fz(2xl);
+      line-height: 1;
+      cursor: pointer;
+      transition: opacity $trs;
+      &:hover {
+        opacity: $linkopa;
+      }
+      &.is-prev {
+        left: .1em;
+        @include mq(xs){
+          left: calc(#{space(m)} + .1em);
+        }
+      }
+      &.is-next {
+        right: .1em;
+      }
+    }
+  }
+}

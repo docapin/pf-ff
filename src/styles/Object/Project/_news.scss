@@ -1,0 +1,82 @@
+/* news */
+.p-news {
+  @include layoutBase;
+  &__title { //見出し
+    color: color(main);
+    font-size: fz(4xl);
+    font-weight: bold;
+    font-family: 'Noto Serif JP';
+    line-height: 1;
+    &-sub {
+      margin-top: space(m);
+      font-size: fz(l);
+      font-weight: bold;
+      line-height: 1;
+    }
+  }
+  &__list { //お知らせリスト
+    font-size: fz(s);
+    margin-top: space(l);
+    li {
+      border-top: 1px dashed color(gray);
+      &:last-child {
+        border-bottom: 1px dashed color(gray);
+      }
+    }
+    &-link { //リンク設定
+      display: block;
+      padding: space(m) 0;
+      text-decoration: none;
+      transition: opacity $trs;
+      &:hover {
+        opacity: .5;
+        .p-news__list-title-line {
+          @include hoverLineAfter;
+        }
+      }
+    }
+    &-info { //日付欄
+      color: color(gray);
+      &-label { //日付欄ラベル
+        display: inline-block;
+        margin-left: space(xs);
+        padding: 0 space(m);
+        color: color(gray);
+        border: 1px solid color(gray);
+        &.is-news {
+          color: color(mainDark);
+          border-color: color(mainDark);
+        }
+        &.is-important {
+          color: color(accent);
+          border-color: color(accent);
+        }
+      }
+    }
+    &-title { //お知らせタイトル
+      position: relative;
+      margin-top: space(s);
+      margin-bottom: -.5em;
+      color: color(black);
+      &-line {
+        @include hoverLineBefore;
+      }
+    }
+  }
+  &__archive { //記事一覧
+    margin-top: space(m);
+    text-align: right;
+    line-height: 1;
+    &-link {
+      color: color(black);
+      font-size: fz(s);
+      text-align: right;
+      text-decoration: none;
+      @include hoverLineBefore;
+      &:hover {
+        opacity: .5;
+        @include hoverLineAfter;
+      }
+    }
+  }
+}
