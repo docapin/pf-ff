@@ -1,0 +1,43 @@
+@mixin flexSet($fw: wrap, $fd: null, $jc: null, $ac: null, $ai: null) { //flexbox設定
+  display: flex;
+  flex-wrap: $fw;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-content: $ac;
+  align-items: $ai;
+}
+
+@mixin mq($key) { //メディアクエリ
+  @media screen and (min-width: map-get($bp, $key)){
+    @content;
+  }
+}
+
+@mixin gridReset($mt: null) { //グリッドシステムをリセットする。_grid.scssで使用
+  margin-top: $mt;
+  max-width: 100%;
+  flex: 0 0 100%;
+  &:first-child{
+    margin-top: 0;
+  }
+}
+
+@mixin layoutBase($color: null, $paddingTop: space(8xl), $paddingRight: space(m), $paddingBottom: space(8xl), $paddingLeft: space(m), $maxWidth: map-get($bp, m)) { //レイアウト設定
+  position: relative;
+  margin: auto;
+  padding: $paddingTop $paddingRight $paddingBottom $paddingLeft;
+  max-width: $maxWidth;
+  color: $color;
+}
+
+@mixin hoverLineBefore($color: color(black), $addTransition: null) { //ホバー時の下線ベース設定
+  background: linear-gradient($color, $color) left bottom /0 1px no-repeat;
+  @if ($addTransition != null){
+    transition: background-size $trs, $addTransition;
+  } @else {
+    transition: background-size $trs;
+  }
+}
+@mixin hoverLineAfter() { //ホバー時の下線動作
+  background-size: 100% 1px;
+}

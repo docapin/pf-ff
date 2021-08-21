@@ -1,0 +1,31 @@
+/* spacing */
+@each $key in $spaceSet {
+  .u-margin {
+    &-top--#{nth($key, 1)} {
+      margin-top: nth($key, 2);
+    }
+    &-right--#{nth($key, 1)} {
+      margin-right: nth($key, 2);
+    }
+    &-bottom--#{nth($key, 1)} {
+      margin-bottom: nth($key, 2);
+    }
+    &-left--#{nth($key, 1)} {
+      margin-left: nth($key, 2);
+    }
+  }
+  .u-padding {
+    &-top--#{nth($key, 1)} {
+      padding-top: nth($key, 2);
+    }
+    &-right--#{nth($key, 1)} {
+      padding-right: nth($key, 2);
+    }
+    &-bottom--#{nth($key, 1)} {
+      padding-bottom: nth($key, 2);
+    }
+    &-left--#{nth($key, 1)} {
+      padding-left: nth($key, 2);
+    }
+  }
+}

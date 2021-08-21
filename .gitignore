@@ -1,0 +1,7 @@
+node_modules/
+.cache/
+public
+docs/
+disabled_files
+.firebase*
+firebase.json
