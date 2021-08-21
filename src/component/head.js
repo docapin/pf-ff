@@ -18,6 +18,7 @@ const HeadTag = () => {
       <meta property="og:description" content="あたらしい“食”を見つけていく。株式会社FOUNDING FOODの公式サイトです。"/>
       <meta property="og:local" content="ja_JP"/>
       <meta property="og:site_name" content="株式会社FOUNDING FOOD　公式サイト"/>
+      <title>株式会社FOUNDING FOODグループ</title>
       <link rel="preconnect" href="https://fonts.googleapis.com"/>
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif+JP:wght@900&display=swap&text=あたらしい「食」を見つけてくNEWSCONCEPTBLAD" rel="stylesheet"/>
