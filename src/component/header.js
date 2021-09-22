@@ -1,6 +1,6 @@
 //ヘッダー
 import React, { useEffect, useState } from 'react'
-import CompanyLogo from '../component/company_logo'
+import CompanyLogo from './companyLogo'
 
 const Header = () => {
   //ハンバーガーメニューの開閉処理
