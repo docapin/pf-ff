@@ -1,6 +1,6 @@
 import React from 'react'
 import HeadTag from '../component/head'
-import Header from "../component/header"
+import Header from '../component/header'
 import MainVisual from '../component/mainVisual'
 import News from '../component/news'
 import ContentMain from '../component/contentMain'
