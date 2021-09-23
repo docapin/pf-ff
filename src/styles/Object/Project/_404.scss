@@ -1,0 +1,27 @@
+/* 404 */
+.p-notfound {
+  @include layoutBase($paddingTop: space(4xl), $paddingBottom: space(4xl));
+  margin-top: calc(#{space(m)} * 2 + 40px); //headerの高さ
+  &__title {
+    color: color(main);
+    font-size: fz(l);
+    font-weight: bold;
+    line-height: 1;
+    @include mq(s){
+      font-size: fz(2xl);
+    }
+  }
+  &__text {
+    margin-top: space(l);
+  }
+  &__link {
+    margin-top: space(2xl);
+    a {
+      color: color(black);
+      @include hoverLineBefore;
+      &:hover {
+        @include hoverLineAfter;
+      }
+    }
+  }
+}

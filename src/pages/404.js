@@ -1,52 +1,24 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import HeadTag from '../component/head'
+import Header from '../component/header'
+import Cursor from '../component/cursor'
+import '../styles/style.scss'
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-
-// markup
+// 404notfound
 const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
+    <main className="l-notfound">
+      <HeadTag/>
+      <Header noneScrollEvent={true}/>
+      <section className="p-notfound">
+        <h2 className="p-notfound__title">ページが見つかりません</h2>
+        <p className="p-notfound__text">
+          ご指定のページが見つかりませんでした。<br/>
+          トップページにお戻りください。
+        </p>
+        <div className="p-notfound__link"><a href="/"><span className="c-arrow is-right is-main u-margin-right--s"></span>トップに戻る</a></div>
+      </section>
+      <Cursor/>
     </main>
   )
 }
