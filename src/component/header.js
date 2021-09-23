@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import CompanyLogo from './companyLogo'
 
-const Header = () => {
+const Header = ({noneScrollEvent}) => {
   //ハンバーガーメニューの開閉処理
   const [judgeClick, setClass] = useState(false)
   const toggleclass = () => {
@@ -12,20 +12,24 @@ const Header = () => {
   //スクロール時の背景処理
   const [heightJudge, setHeightJudge] = useState(false)
   useEffect(() => {
-    const scrollAction = () => {
-      const headerHeight = document.querySelector('.l-header')
-      if( headerHeight.clientHeight < window.scrollY ){
-        setHeightJudge(true)
-      } else {
-        setHeightJudge(false)
+    if(noneScrollEvent === true) {
+      setHeightJudge(true)
+    } else {
+      const scrollAction = () => {
+        const headerHeight = document.querySelector('.l-header')
+        if( headerHeight.clientHeight < window.scrollY ){
+          setHeightJudge(true)
+        } else {
+          setHeightJudge(false)
+        }
       }
+      
+      requestAnimationFrame(() => {
+        window.addEventListener('scroll', scrollAction, { passive: true })
+      })
+      
+      scrollAction()
     }
-    
-    requestAnimationFrame(() => {
-      window.addEventListener('scroll', scrollAction, { passive: true })
-    })
-    
-    scrollAction()
   }, [])
   
   return (
